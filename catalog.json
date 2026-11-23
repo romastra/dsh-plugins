@@ -1,0 +1,167 @@
+{
+  "title": "My personal dsh plugins index",
+  "metadata": {
+    "categories": {
+      "interface": {
+        "title": {
+          "en": "Interface",
+          "ru": "Интерфейс"
+        }
+      },
+      "voice": {
+        "title": {
+          "en": "Voice input",
+          "ru": "Диктовка"
+        }
+      },
+      "models": {
+        "title": {
+          "en": "Models and agents",
+          "ru": "Модели и агенты"
+        }
+      },
+      "tools": {
+        "title": {
+          "en": "Tools and integrations",
+          "ru": "Инструменты и интеграции"
+        }
+      },
+      "remote": {
+        "title": {
+          "en": "Remote access",
+          "ru": "Удалённый доступ"
+        }
+      }
+    },
+    "labels": {
+      "own": {
+        "title": {
+          "en": "Our bundles",
+          "ru": "Собственные"
+        }
+      },
+      "upstream": {
+        "title": {
+          "en": "Upstream",
+          "ru": "От сторонних авторов"
+        }
+      },
+      "setup": {
+        "title": {
+          "en": "Setup required",
+          "ru": "Нужна настройка"
+        }
+      }
+    }
+  },
+  "packages": {
+    "chat-switcher": {
+      "category": "interface"
+    },
+    "codex-native": {
+      "category": "models",
+      "labels": [
+        "setup"
+      ]
+    },
+    "codex-overload-recovery": {
+      "category": "models"
+    },
+    "composer-dock-reserve": {
+      "category": "interface"
+    },
+    "composer-placeholder": {
+      "category": "interface"
+    },
+    "content-origin": {
+      "category": "tools",
+      "labels": [
+        "setup"
+      ]
+    },
+    "draft-preservation": {
+      "category": "interface"
+    },
+    "dsh-phone-secure": {
+      "category": "remote",
+      "labels": [
+        "setup"
+      ]
+    },
+    "dsh-phone-settings": {
+      "category": "remote",
+      "labels": [
+        "setup"
+      ]
+    },
+    "mcp-task-bridge": {
+      "category": "tools",
+      "labels": [
+        "setup"
+      ]
+    },
+    "reasoning-depth": {
+      "category": "models"
+    },
+    "session-log-project": {
+      "category": "tools"
+    },
+    "sound-notifications": {
+      "category": "interface"
+    },
+    "ssh-pageant-mcp": {
+      "category": "remote",
+      "labels": [
+        "setup"
+      ]
+    },
+    "ui-zoom": {
+      "category": "interface"
+    },
+    "voice-ext-inference": {
+      "category": "voice",
+      "labels": [
+        "setup"
+      ]
+    },
+    "web-search-chrome-ai": {
+      "category": "tools",
+      "labels": [
+        "setup"
+      ]
+    },
+    "workspace-colors": {
+      "category": "interface"
+    }
+  },
+  "upstream": [
+    {
+      "name": "@michengai/dsh-btw",
+      "title": {
+        "en": "BTW",
+        "ru": "BTW — вопрос в сторону"
+      },
+      "description": {
+        "en": "Ask a one-off question from the current context in a read-only bubble without tool calls.",
+        "ru": "Отдельный ответ на вопрос по текущему контексту без вызова инструментов."
+      },
+      "author": "MichengAI",
+      "repository": {
+        "url": "https://github.com/MichengAI/dsh-btw"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "upstream"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.3.12",
+          "published": "2026-11-18T03:23:24.865Z",
+          "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+        }
+      ]
+    }
+  ]
+}

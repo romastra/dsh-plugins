@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Local multilingual NVIDIA PARAKEET dictation (CPU)">
+  <defs>
+    <linearGradient id="lp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563EB"/>
+      <stop offset="0.55" stop-color="#0E9488"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="lp-mic" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DBEAFE"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#lp-bg)"/>
+  <rect x="12" y="42" width="40" height="10" rx="4" fill="#0F172A" opacity="0.35"/>
+  <rect x="17" y="45" width="6" height="4" rx="1.5" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="26" y="45" width="6" height="4" rx="1.5" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="35" y="45" width="6" height="4" rx="1.5" fill="#FFFFFF" opacity="0.35"/>
+  <rect x="25" y="12" width="14" height="24" rx="7" fill="url(#lp-mic)"/>
+  <path d="M18 31v1.8c0 7.7 6.3 14 14 14s14-6.3 14-14V31" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M32 46.8v4.2" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M15 24c-1.5 2.1-2.3 4.6-2.3 7.3" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.55"/>
+  <path d="M49 24c1.5 2.1 2.3 4.6 2.3 7.3" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.55"/>
+</svg>

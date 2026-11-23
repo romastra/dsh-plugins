@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact verified SHA-256 of the public Hugging Face tokenizer.json, not an authentication token"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^packages[/\\]content-origin[/\\]models\.lock\.json$''']
+regexes = ['''^\s*"tokenizer\.json": "b6a9f282c732603652189b1fc2f32a2e2578b43927c5cf44a2e3585631419bb0",?\s*$''']

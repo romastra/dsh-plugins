@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Composer status bar spacing",
+    "description": "Keeps the context meter’s space when it is temporarily hidden, so the status bar does not unwrap during dictation. Does not change voice capture or recognition."
+  }
+}

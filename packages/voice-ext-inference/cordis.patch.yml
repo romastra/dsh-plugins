@@ -1,0 +1,7 @@
+# No Tailnet peer, local credential path or worker is inferred. Configure before enabling.
+- insert:
+    - id: voice-ext-inference
+      name: 'voice-ext-inference'
+      disabled: true
+      config:
+        enableLocalRollback: false

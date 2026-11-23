@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Secure phone access",
+    "description": "Adds HTTPS phone access to the existing Desktop using native DSH token/cookie verification on every route. A private Windows CA is trusted once on the phone; the server identity and QR follow any selected adapter IPv4, including virtual, VPN and tunnel interfaces. There is no physical/private-address/default-gateway filter. No nginx, WSL or separate software. Unauthorized HTTP requests receive no response within a bounded quarantine (10 total, 3 per IP, 120 seconds); excess connections close. TCP/TLS metadata remain observable. Choose an adapter in Settings → Phone access with @local/dsh-phone-settings, or use the local connection document. Secret links grant owner access. Disable the whole bundle to close the listener; the CA is not automatically removed."
+  }
+}

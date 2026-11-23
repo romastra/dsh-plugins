@@ -1,0 +1,24 @@
+{
+  "text_ru": {
+    "repo": "toiletsandpaper/russian-ai-text-detector-bert",
+    "revision": "91405c0c017a547eeccfa40bb2f70e129b7333fa",
+    "license": "MIT",
+    "files": {
+      "model.onnx": "0faa02998aac9091c2ef49b5a7b55c3919b4e0ca54a3056af8f9ee37c0dd2df6",
+      "tokenizer.json": "b6a9f282c732603652189b1fc2f32a2e2578b43927c5cf44a2e3585631419bb0",
+      "inference.json": "1dc396465da43aa3686f1f6313c59095c23ef516c79b5aa1f58ea66f004192b2",
+      "README.md": "6d20a25ad33cb1781436071741aa0468598bf1768d2ff8a36d42bdeafccc8a83"
+    }
+  },
+  "image": {
+    "repo": "onnx-community/ai-image-detect-distilled-ONNX",
+    "revision": "7f067e23521eeb6d6525221af82c613fb746aaff",
+    "license": "MIT",
+    "files": {
+      "onnx/model.onnx": "87b4331f22418a4cb50901851a1c28f64a0ca4f58728442d073b4bed9922ba86",
+      "config.json": "a8cb06606a9b596713e29deb15a57de19c564e4106470f62e045c8bebc69d358",
+      "preprocessor_config.json": "ae9bb157b9629887cc74913a4e7c12c9308f374f0930e8072320e8f2e1583c5e",
+      "README.md": "3e97098da1273f54f56a312bf58fa91ab60293f7356008ebd55048ab742ab955"
+    }
+  }
+}

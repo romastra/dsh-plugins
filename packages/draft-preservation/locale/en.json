@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Draft preservation",
+    "description": "Keeps the original draft attachments, including pasted images, files, their order and upload state, while switching chats. Reopening an existing blank chat keeps its selected agent mode without changing the global default. Sent and removed attachments are not restored. Works within the current page until reload or Desktop exit; this is not a backup. Compatible with DSH 0.2.2-rc.3."
+  }
+}

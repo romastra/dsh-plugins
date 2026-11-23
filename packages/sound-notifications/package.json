@@ -1,0 +1,63 @@
+{
+  "name": "@local/sound-notifications",
+  "version": "1.7.0",
+  "private": true,
+  "type": "module",
+  "description": "Separate custom audio files for approvals, user questions and end-of-work notification sequences",
+  "exports": {
+    ".": "./index-v9.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index-v9.js",
+    "index-v8.js",
+    "work-outcome.js",
+    "index-v7.js",
+    "index-v6.js",
+    "index-v5.js",
+    "custom-audio.js",
+    "index-v4.js",
+    "completion-channel.js",
+    "attention-state.js",
+    "index-v3.js",
+    "index-v2.js",
+    "index-v1.js",
+    "index.js",
+    "host-runtime.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dependencies": {
+    "zod": "4.4.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-approval",
+        "@deepseek-ai/dsh-client-ui-user-questions",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": "0.2.2-rc.5"
+  }
+}

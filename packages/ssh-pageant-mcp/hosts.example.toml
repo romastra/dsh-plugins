@@ -1,0 +1,11 @@
+# Example only. Save the real hosts.toml outside this repository.
+[hosts.example]
+hostname = "ssh.example.invalid"
+port = 22
+user = "example"
+path_allowlist = []
+
+[hosts.example.auth]
+method = "agent"
+identity_fingerprint = "<your Pageant public-key fingerprint>"
+identities_only = true

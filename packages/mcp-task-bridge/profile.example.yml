@@ -1,0 +1,10 @@
+# Private profile override. The example hostname is reserved and will not resolve.
+- id: local-mcp-task-bridge
+  config:
+    servers:
+      - name: my-server
+        transport: streamable-http
+        url: 'https://mcp.example.invalid:8443/mcp'
+        allowedTools: [read_status]
+        startupTimeoutMs: 45000
+        requestTimeoutMs: 30000

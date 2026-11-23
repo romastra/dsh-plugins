@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "voice-ext-inference",
+    "description": "通过私有 Tailnet 的 GPU 听写：支持选择并记住麦克风、FLAC 压缩、实时预览、完整最终识别、按住录音和问题字段保护。提供 GPU 池容量、交互保留与排空设置。本地 Parakeet 保留但默认禁用，仅用于显式回滚。"
+  }
+}

@@ -1,0 +1,24 @@
+# Private profile override. Substitute your own local absolute paths; never commit the real configuration.
+- id: ssh-pageant-mcp
+  disabled: false
+  config:
+    serverName: ssh
+    transport: stdio
+    command: '<absolute path to your trusted Windows Python 3.11 executable>'
+    args: ['-I', '-S', '-X', 'utf8', '-u', '<absolute path to launch.py from this repository>']
+    failOnStartupError: true
+    env:
+      DSH_SSH_VENV: '<absolute path to the dedicated venv>'
+      DSH_SSH_PAGEANT_FINGERPRINT: '<SHA256 fingerprint of your single selected public key>'
+      SSH_HOSTS_FILE: '<absolute path to your private hosts.toml>'
+      # Optional. Override only hostname/port of a host alias in that file.
+      # DSH_SSH_HOST_ENDPOINTS: '{"example":{"hostname":"ssh.example.invalid","port":2222}}'
+      SSH_KNOWN_HOSTS: '<absolute path to your verified known_hosts>'
+      SSH_CONFIG_FILE: '<absolute path to the dedicated OpenSSH config>'
+      SSH_ENABLE_BM25: 'true'
+      SSH_ENABLED_GROUPS: 'host,sftp-read'
+      ALLOW_PASSWORD_AUTH: 'false'
+      ALLOW_DANGEROUS_TOOLS: 'false'
+      ALLOW_ANY_COMMAND: 'false'
+      ALLOW_SUDO: 'false'
+      MCP_TRANSPORT: stdio

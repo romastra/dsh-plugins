@@ -1,0 +1,7 @@
+# Companion settings control the secure gateway adapter, never the Desktop listener.
+- insert:
+    - id: phone-access-settings
+      name: '@local/dsh-phone-settings'
+      config:
+        outputDir: !!js dshHomePath('phone-access')
+        port: 63819

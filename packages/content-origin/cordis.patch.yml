@@ -1,0 +1,5 @@
+- insert:
+    - id: local-content-origin
+      name: '@local/content-origin'
+      config:
+        dataDir: !!js dshHomePath('content-origin')

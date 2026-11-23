@@ -1,0 +1,216 @@
+/** Local, version-bounded DSH 0.2.2-rc.3 navigation hotfix. No browser files are copied. */
+export const RETAIN_SOURCE = 'draftPreservation';
+const FROZEN = new Set(['adjudicating', 'submitting', 'sending']);
+
+/** Find a public method's unwrapped descriptor (Cordis traces method reads). */
+function methodDescriptor(object, key) {
+  for (let owner = object; owner; owner = Object.getPrototypeOf(owner)) {
+    const descriptor = Object.getOwnPropertyDescriptor(owner, key);
+    if (descriptor) return descriptor;
+  }
+  throw new Error(`draft-preservation: missing public method ${key}`);
+}
+
+/** Preserve the exact named blank's preset, without changing workspace navigation policy. */
+export function preserveReusedPreset(sessions, workspaces) {
+  const own = Object.getOwnPropertyDescriptor(sessions, 'create');
+  const descriptor = methodDescriptor(sessions, 'create');
+  const original = descriptor.value;
+  if (typeof original !== 'function') throw new Error('draft-preservation: sessions.create is not a method');
+  let enabled = true;
+  async function create(options, ...rest) {
+    if (!enabled) return Reflect.apply(original, this, [options, ...rest]);
+    let effective = options;
+    if (options?.sessionId !== undefined && options.agentPreset === undefined) {
+      const summary = sessions.list.getSnapshot().byId[options.sessionId];
+      const binding = sessions.binding(options.sessionId);
+      const current = binding?.session.getSnapshot();
+      const archived = (workspaces?.list.getSnapshot().archivedSessionIds ?? []).includes(options.sessionId);
+      if (!archived && summary?.blank === true && (current === undefined || (current.blank && !current.removed))) {
+        const live = binding?.session.projections.faceOf('agentPreset').getSnapshot();
+        const preset = typeof live === 'string' ? live : summary.projectionValues?.agentPreset;
+        if (typeof preset === 'string' && preset !== '') effective = { ...options, agentPreset: preset };
+      }
+    }
+    try {
+      return await Reflect.apply(original, this, [effective, ...rest]);
+    } catch (error) {
+      // Core's startup restoration deliberately falls back to the Host default when
+      // a recorded preset was removed or cannot activate. Do not inject it again.
+      const code = error?.rpcError?.code;
+      if (effective === options || (code !== 'agent-preset/not-found' && code !== 'agent-preset/invalid')) throw error;
+      return Reflect.apply(original, this, [options, ...rest]);
+    }
+  }
+  Object.defineProperty(sessions, 'create', { ...descriptor, value: create, configurable: true, writable: true });
+  return {
+    active: () => enabled && Object.getOwnPropertyDescriptor(sessions, 'create')?.value === create,
+    dispose() {
+      enabled = false;
+      // A newer wrapper may retain ours in its chain; it becomes a transparent
+      // pass-through on unload without removing that other extension's method.
+      if (Object.getOwnPropertyDescriptor(sessions, 'create')?.value !== create) return;
+      if (own) Object.defineProperty(sessions, 'create', own);
+      else Reflect.deleteProperty(sessions, 'create');
+    },
+  };
+}
+
+/**
+ * Own exact Client generations while an attachment or an admitting submission needs them.
+ * The normal Conversation input, upload queue, previews and serializers stay the sole owners.
+ */
+export function createDraftLifetimes({ sessions, conversation, workspaces, defer = queueMicrotask, report = console.error }) {
+  const records = new Map();
+  let alive = true;
+  let retainedEver = 0;
+  let errors = 0;
+
+  function isRemoved(record) {
+    return record.binding.session.getSnapshot().removed
+      || (workspaces?.list.getSnapshot().archivedSessionIds ?? []).includes(record.binding.sessionId);
+  }
+
+  function isCurrent(record) {
+    return alive && !record.disposed && sessions.binding(record.binding.sessionId) === record.binding;
+  }
+  function needsOwner(record) {
+    const input = record.input.state.getSnapshot();
+    return input.attachmentIds.length > 0 || FROZEN.has(input.phase) || record.pendingFlush;
+  }
+  function disposeRecord(record) {
+    if (record.disposed) return;
+    record.disposed = true;
+    records.delete(record.binding);
+    for (const off of record.offs) off();
+    record.offs.length = 0;
+    const reference = record.reference;
+    record.reference = undefined;
+    reference?.release();
+  }
+  function scheduleRelease(record) {
+    if (record.releaseQueued) return;
+    record.releaseQueued = true;
+    defer(() => {
+      record.releaseQueued = false;
+      if (!isCurrent(record) || isRemoved(record)) { disposeRecord(record); return; }
+      if (needsOwner(record)) return;
+      const reference = record.reference;
+      record.reference = undefined;
+      // Release outside input publication/onAccept. Recheck above: a new paste or
+      // a new attempt must not be cancelled by an older queued release.
+      reference?.release();
+    });
+  }
+  function reconcile(record) {
+    if (!isCurrent(record)) { disposeRecord(record); return; }
+    if (isRemoved(record)) { disposeRecord(record); return; }
+    if (!needsOwner(record)) { if (record.reference) scheduleRelease(record); return; }
+    if (record.reference || record.acquiring) return;
+    record.acquiring = true;
+    try {
+      const reference = sessions.retain(record.binding.sessionId, { source: RETAIN_SOURCE });
+      let adopted = false;
+      try {
+        // Early release may reject readiness. Ownership is synchronous and does not
+        // need to await another history opening; handle every waiter's rejection.
+        void reference.ready.catch(() => {});
+        // retain() publishes the list synchronously. Check for nested removal or
+        // unload before reading reference.binding, whose getter rejects dead scopes.
+        if (!isCurrent(record) || isRemoved(record)) {
+          disposeRecord(record);
+          return;
+        }
+        if (reference.binding !== record.binding) {
+          throw new Error('draft-preservation: Session generation changed during acquisition');
+        }
+        record.reference = reference;
+        adopted = true;
+        retainedEver += 1;
+        // Input may have changed during the retain publication too.
+        if (!needsOwner(record)) scheduleRelease(record);
+      } finally {
+        // No reference escapes an exception or a synchronous generation teardown.
+        if (!adopted) reference.release();
+      }
+    } finally {
+      record.acquiring = false;
+    }
+  }
+  function safelyReconcile(record) {
+    try { reconcile(record); } catch (error) { errors += 1; report('[draft-preservation]', error); }
+  }
+  function observe(binding) {
+    if (!alive || records.has(binding)) return;
+    const input = conversation.input.for(binding.ctx);
+    const record = {
+      binding, input, reference: undefined, offs: [], disposed: false,
+      acquiring: false, releaseQueued: false, mounts: 0, pendingFlush: false,
+      revision: input.state.getSnapshot().draftRev,
+    };
+    records.set(binding, record);
+    record.offs.push(input.state.subscribe(() => {
+      const revision = input.state.getSnapshot().draftRev;
+      // Core's semantic draft writer belongs to the mounted Conversation view.
+      // If an offscreen acceptance clears the draft, retain its cleared shell
+      // until remount flushes it, rather than resurrecting the old saved text.
+      if ((record.reference || record.acquiring) && record.mounts === 0 && revision !== record.revision) record.pendingFlush = true;
+      record.revision = revision;
+      safelyReconcile(record);
+    }));
+    record.offs.push(binding.session.subscribe(() => { safelyReconcile(record); }));
+    // Forced Controller/generation teardown also removes our subscriptions.
+    const offScope = binding.ctx.effect(() => () => { disposeRecord(record); }, 'draft-preservation: input lifetime');
+    record.offs.push(() => { void offScope(); });
+    // provide.resolve can run inside UiSession.materialize; avoid reentrant retention there.
+    defer(() => { if (!record.disposed) safelyReconcile(record); });
+  }
+  const offWorkspaces = workspaces?.list.subscribe(() => {
+    for (const record of [...records.values()]) safelyReconcile(record);
+  });
+  function mounted(sessionId, inputActions) {
+    const binding = sessions.binding(sessionId);
+    const record = records.get(binding);
+    if (!record || !isCurrent(record)) return () => {};
+    record.mounts += 1;
+    let mounted = true;
+    // Wait for the sibling DefaultConversationViews effect to attach the writer.
+    defer(() => {
+      if (!mounted || !isCurrent(record)) return;
+      try {
+        inputActions.persistDraft();
+        record.pendingFlush = false;
+        safelyReconcile(record);
+      } catch (error) {
+        errors += 1;
+        report('[draft-preservation] draft flush failed', error);
+      }
+    });
+    return () => {
+      if (!mounted) return;
+      mounted = false;
+      record.mounts -= 1;
+    };
+  }
+  return {
+    observe,
+    mounted,
+    status() {
+      const result = { observedSessions: records.size, retainedSessions: 0, attachments: 0, inFlight: 0, awaitingDraftFlush: 0, acquisitions: retainedEver, errors };
+      for (const record of records.values()) {
+        const state = record.input.state.getSnapshot();
+        if (record.reference) result.retainedSessions += 1;
+        result.attachments += state.attachmentIds.length;
+        if (FROZEN.has(state.phase)) result.inFlight += 1;
+        if (record.pendingFlush) result.awaitingDraftFlush += 1;
+      }
+      return result;
+    },
+    dispose() {
+      if (!alive) return;
+      alive = false;
+      offWorkspaces?.();
+      for (const record of [...records.values()]) disposeRecord(record);
+    },
+  };
+}

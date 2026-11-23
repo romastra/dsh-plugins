@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Interface zoom",
+    "description": "One magnifier on the right of the chat toolbar opens a vertical slider: track 30% of window height, an opaque circular thumb with grip detail (7% of track length, minimum 24px) and a minimum 48px touch target. Fixed 50%, 100% and 300% labels sit beside—not across—the draggable strip. Local inverse zoom keeps its size unchanged at every UI zoom. Native DSH 0.2.2-rc.3 menus, submenus, hover cards and tooltips use normalized viewport positioning while their visible content stays zoomed. Steps use ln(zoom) = 0.1; the separate 100% scale label has an extra sticky step on each side during dragging only. Ctrl/Cmd + Shift + plus/minus uses the log steps with no dead presses at 100%; Ctrl/Cmd + Shift + 0 resets. The 50–300% preference is saved only in this browser’s localStorage, with full precision; dragging saves on release. Desktop and phone are independent. Same-origin tabs in one browser share the value. New browser storage starts at 100%, not the old profile value. If storage is blocked, zoom works in tab memory with an unsaved-value warning. Escape or an outside click closes the panel. Also available in Settings → General → Interface zoom. Uses CSS document zoom, not native Electron page zoom; embedded native surfaces are not controlled."
+  }
+}

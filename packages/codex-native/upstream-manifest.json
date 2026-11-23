@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/WSL043/dsh-codex-subscription",
+  "version": "3.2.27",
+  "commit": "82e8970b8c7f7cb50b5e03c59b4e83d8811bc3eb",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "src/subscription-compaction.js",
+      "sha256": "2f71f6ca21fd11ac37a730e6c27c0b5b9695ccb45924e05ebca1624657e0719d",
+      "functions": [
+        "createCompactionBridge"
+      ],
+      "destinations": [
+        "src/compaction/bridge.js",
+        "src/compaction/collector.js",
+        "src/compaction/checkpoint.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Threshold payload, age/prefix and anchor binding, suffix selection and tool linkage. The Native implementation adds verified grant scope and terminal reconciliation while retaining Host history."
+    },
+    {
+      "path": "src/context-budget.js",
+      "sha256": "ea894f86b7658cf61644de8355c7945708a8d40aba6e9d70274062572472dd6f",
+      "functions": [
+        "effectiveContextWindow",
+        "compactionThreshold"
+      ],
+      "destinations": [
+        "src/compaction/budget.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Uses only the prepared descriptor, output reservation and configured ceiling."
+    },
+    {
+      "path": "src/usage.js",
+      "sha256": "141cc98fc9bc5cadf29b59b1628766d8d4fca0b19e4e7a1031be224437988a02",
+      "functions": [
+        "parseCodexUsage",
+        "createCodexUsageReader"
+      ],
+      "destinations": [
+        "src/quota/parse.js",
+        "src/quota/service.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Native scoped reader, exact decimal strings and partial-section validation."
+    },
+    {
+      "path": "src/shared-request.js",
+      "sha256": "cec0276d6e1b85ce48c5638fc8cdad8ab0c6955f620a315fec48f82acb10035a",
+      "functions": [
+        "createSharedRequests"
+      ],
+      "destinations": [
+        "src/quota/service.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Shared cache, per-consumer abort and revision fences; no donor credential bridge."
+    },
+    {
+      "path": "src/plan-history.js",
+      "sha256": "27acc59a68b057391b5c59c143f79ddc86254d894e89fbac9257e442244037e8",
+      "functions": [
+        "parsePlanHistory",
+        "createReportReader"
+      ],
+      "destinations": [
+        "src/quota/report.js",
+        "src/quota/service.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Allowlisted history periods and dimensions."
+    },
+    {
+      "path": "src/usage-profile.js",
+      "sha256": "6cbbefef0e233bd77afac625d83d9e44e62e323771544a5bec030838c4626274",
+      "functions": [
+        "parseUsageProfile"
+      ],
+      "destinations": [
+        "src/quota/report.js",
+        "src/quota/service.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Statistics allowlist only; no profile identity."
+    },
+    {
+      "path": "src/usage-heatmap.js",
+      "sha256": "cbe710837b54fbcb671566252e5317c9e257eefed77654ad4c4419fe8b5af93a",
+      "functions": [
+        "firstWeekday",
+        "heatmapCells",
+        "formatDuration"
+      ],
+      "destinations": [
+        "src/client.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Calendar projection separates missing observations from zero."
+    },
+    {
+      "path": "src/quota-cadence.js",
+      "sha256": "f12a36a496daeb745f8302f82440b2bfded3999777bb652a7b1927e44134e654",
+      "functions": [
+        "quotaRefreshMs",
+        "highestUsed"
+      ],
+      "destinations": [
+        "src/quota/quota-cadence.js"
+      ],
+      "mode": "copied",
+      "rationale": "Pinned adaptive TTL algorithm."
+    },
+    {
+      "path": "src/quota-rate-interval.js",
+      "sha256": "58f727cdb7a23d58438a15747958d2b04bc2597b4adf639e6c9028fa93c1138b",
+      "functions": [
+        "quotaRateInterval",
+        "quotaSharedOffsetInterval",
+        "refineQuotaRate"
+      ],
+      "destinations": [
+        "src/quota/quota-rate-interval.js"
+      ],
+      "mode": "copied",
+      "rationale": "Pinned robust rate interval algorithm."
+    },
+    {
+      "path": "src/quota-forecast.js",
+      "sha256": "a0538768dfc18817da2effdbd346dac0fdf90d290e2695ea92ebb0031ee685cc",
+      "functions": [
+        "observeQuotaForecast",
+        "estimateQuotaForecast",
+        "forecastUsage",
+        "createQuotaForecastReader"
+      ],
+      "destinations": [
+        "src/quota/quota-forecast.js"
+      ],
+      "mode": "copied",
+      "rationale": "Pinned observation/estimation math; Native provides bounded persistence and time-unit adapters."
+    },
+    {
+      "path": "src/quota-pace.js",
+      "sha256": "077dec59884adb958c1bbad93ac7e444d16f9e328dd83f6e9d95cd841ab68294",
+      "functions": [
+        "roundRunwaySeconds",
+        "forecastRunway"
+      ],
+      "destinations": [
+        "src/quota/quota-pace.js"
+      ],
+      "mode": "copied",
+      "rationale": "Pinned quota pace helpers."
+    },
+    {
+      "path": "src/quota-forecast-store.js",
+      "sha256": "aef122b53d9e9f940418660f4e2505b06d7509cd0d36744d64be071856de5987",
+      "functions": [],
+      "destinations": [
+        "src/quota/history-store.js",
+        "src/quota/store.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Separate atomic bounded owner-scoped history; no mutation journal cleanup."
+    },
+    {
+      "path": "src/reset-credits.js",
+      "sha256": "5dd382f5d70bdacda986fbc48513d5e9e44f9ab54884a2513c5d539bcaf655b5",
+      "functions": [
+        "createCodexResetCreditService"
+      ],
+      "destinations": [
+        "src/quota/parse.js",
+        "src/quota/reset-service.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Wire contract and explicit consent; durable restart recovery was added independently."
+    },
+    {
+      "path": "src/quota-retry.js",
+      "sha256": "487a895791f8290a23ef11028b4eb8aba6c1e82cbcd0fcc992aebb436916ef0b",
+      "functions": [
+        "createCodexQuotaRetryHandler"
+      ],
+      "destinations": [
+        "src/quota/recovery.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Short-window criteria in the actual Host waterfall, no separate executor."
+    },
+    {
+      "path": "src/client-usage.jsx",
+      "sha256": "8af8d8599b10324e26752fcf1028cb290c47d8f123c5e3c8d0a3e707f4e2d340",
+      "functions": [
+        "CreditExpiry",
+        "ResetTime",
+        "ResetCreditExpiry",
+        "ResetCreditList",
+        "ResetCreditControl",
+        "resetCreditErrorText",
+        "UsageCard"
+      ],
+      "destinations": [
+        "src/client.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Quota view behavior implemented in self-contained Native React."
+    },
+    {
+      "path": "src/client-quota.jsx",
+      "sha256": "df44702e8273aff76bbff3085009b5b90af7449e82b60a31a7e6376e96b068c8",
+      "functions": [
+        "quotaUsageController",
+        "useQuotaUsage",
+        "useQuickQuota"
+      ],
+      "destinations": [
+        "src/client.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Account-level panel, separate reports and user-only consent."
+    },
+    {
+      "path": "src/subscription-rpc.js",
+      "sha256": "11f39c48dc1aeededcbc0b2a7854caf07244bd1736fe12ba5618dbd5b190bca3",
+      "functions": [
+        "settlesLive",
+        "createSubscriptionRpcHandler"
+      ],
+      "destinations": [
+        "src/quota/runtime.js",
+        "index.js",
+        "acp.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Meaning of read and mutation methods, with Native transport."
+    },
+    {
+      "path": "src/rpc-contract.js",
+      "sha256": "79fad4d36a964c168f778ffb756aa3047fefe663a1f7e070faf5462856ba6742",
+      "functions": [
+        "createSubscriptionRpcClient",
+        "unwrap"
+      ],
+      "destinations": [
+        "index.js",
+        "acp.js",
+        "src/client.js"
+      ],
+      "mode": "adapted",
+      "rationale": "Structured errors and authoritative revision, Native nonce transport."
+    },
+    {
+      "path": "tests/quota-forecast.test.mjs",
+      "sha256": "a46ab95c4ad36e9db1fba1fbc96caa06f94c3b8ea1dac0a584ac710fabfb00b6",
+      "destinations": [
+        "test/upstream-quota-forecast.test.mjs"
+      ],
+      "mode": "adapted",
+      "rationale": "Original pinned fixtures; only relative module imports follow the staging layout."
+    },
+    {
+      "path": "tests/quota-rate-interval.test.mjs",
+      "sha256": "79e25bf5c058bcd291faefeaf21b13957e0f2a99e47d8363a56bbb7e7fb10a89",
+      "destinations": [
+        "test/upstream-quota-rate-interval.test.mjs"
+      ],
+      "mode": "adapted",
+      "rationale": "Original pinned fixtures; only relative module imports follow the staging layout."
+    }
+  ]
+}

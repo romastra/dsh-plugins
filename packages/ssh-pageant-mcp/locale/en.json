@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "SSH with Pageant",
+    "description": "Discover authorized SSH hosts through the Windows Pageant agent. Install disabled; setup and your own private host definitions are required."
+  }
+}

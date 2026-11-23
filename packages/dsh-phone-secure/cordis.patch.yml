@@ -1,0 +1,15 @@
+# HTTPS-only replacement. No changes to the core loopback listener or trustedHosts.
+- insert:
+    - id: secure-phone-lan
+      name: '@local/dsh-phone-secure'
+      disabled: true
+      config:
+        port: 63819
+        interfaceGuid: ''
+        quarantineLimit: 10
+        quarantinePerIp: 3
+        quarantineMs: 120000
+        headerDeadlineMs: 10000
+        pollIntervalMs: 5000
+        outputDir: !!js dshHomePath('phone-access')
+        stateDir: !!js dshHomePath('phone-access-private')

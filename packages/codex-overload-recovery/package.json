@@ -1,0 +1,34 @@
+{
+  "name": "@local/codex-overload-recovery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Classify the known Codex overload failure for native, same-step DSH autorecovery without replaying tools.",
+  "license": "MIT",
+  "engines": {
+    "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "normalize.js",
+    "diagnose.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "icon.svg",
+    "test"
+  ],
+  "scripts": {
+    "test": "node --test test/normalize.test.mjs test/diagnose.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

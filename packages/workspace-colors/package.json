@@ -1,0 +1,51 @@
+{
+  "name": "@local/workspace-colors",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Persistent MSX colors for Workspace headers, indented Session rows and Chat Switcher preview cards.",
+  "license": "MIT",
+  "engines": {
+    "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+  },
+  "exports": {
+    ".": "./host-v2.js",
+    "./client": "./client-v3.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "host-v2.js",
+    "index.js",
+    "service.js",
+    "palette.js",
+    "client-v3.js",
+    "src",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dependencies": {
+    "zod": "4.6.6"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-context-menu"
+      ]
+    }
+  }
+}

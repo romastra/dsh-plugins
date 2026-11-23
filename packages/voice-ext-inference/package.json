@@ -1,0 +1,61 @@
+{
+  "name": "voice-ext-inference",
+  "version": "1.2.8",
+  "private": true,
+  "type": "module",
+  "description": "Qwen ASR 1.7B Rig GPU dictation with explicit microphone selection",
+  "engines": {
+    "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client-1.2.6.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "build.mjs",
+    "compile-client.mjs",
+    "hold-to-talk.mjs",
+    "question-ui.mjs",
+    "native_bridge.py",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "local-legacy.js",
+    "rig-transport.mjs",
+    "config.mjs",
+    "pcm-flac.mjs",
+    "rig-client.mjs",
+    "microphone-input.mjs",
+    "microphone-picker.mjs",
+    "recording-limit.mjs",
+    "rig-finalization.mjs",
+    "client-1.2.6.js",
+    "rig.example.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-user-questions",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "clientArtifactVersion": "1.2.6",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

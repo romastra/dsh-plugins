@@ -1,0 +1,6 @@
+# Installed into the bundle's isolated .venv, never global Python.
+c2pa-python==0.38.0
+onnxruntime==1.31.1
+tokenizers==0.23.3
+Pillow==13.0.0
+numpy==2.2.6

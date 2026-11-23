@@ -1,0 +1,5 @@
+{
+  "name": "Chat switcher",
+  "description": "Priority chats: swipe left for previews, right in chat to quick-switch, right in the dialog to dismiss. Circle reveal, New Session and card actions. Soft card backgrounds follow assigned Workspace colors when workspace-colors is available. Archived chats excluded.",
+  "meta": { "title": "Chat switcher", "description": "Current chat first, then events by priority and observed age; the last group includes pinned, working and last-hour visits. Previews fill 90% of the chat area, with a visual wordless tension indicator. Card backgrounds optionally follow assigned Workspace colors. Historical event times absent from the source cannot be reconstructed." }
+}

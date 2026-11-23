@@ -1,0 +1,60 @@
+{
+  "name": "@local/chat-switcher",
+  "version": "1.16.1",
+  "private": true,
+  "type": "module",
+  "description": "Priority chat previews with optional Workspace-color backgrounds, wordless swipes, persistent mosaics and adaptive accent palettes",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client-v1.16.1.js",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "host.js",
+    "image-salt.js",
+    "src/mosaic.js",
+    "src/fractal.js",
+    "src/image-variant.js",
+    "src/identity.js",
+    "client-v1.16.1.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0",
+    "zod": "^4.4.3"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-context-menu",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": "0.2.2-rc.5"
+  }
+}

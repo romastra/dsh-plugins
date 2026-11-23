@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Chrome AI Mode search",
+    "description": "Google AI Mode (udm=50) through your local Chrome: one AI-generated answer plus its cited sources, via the agent-browser CLI. No paid search API."
+  }
+}

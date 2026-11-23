@@ -1,0 +1,4 @@
+- insert:
+    - id: sound-notifications
+      name: '@local/sound-notifications'
+      config: {}

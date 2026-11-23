@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "MSX workspace colors",
+    "description": "Right-click a Workspace (or use its … menu) → Workspace color · MSX. Choose from 15 MSX colors or No color. The header and its indented Session rows share subtle accents; Chat Switcher preview cards use the same Workspace tint. Native text, status and selection remain readable. Colors are saved in the DSH profile and shared across connected devices; session data and folders are unchanged. Requires DSH 0.2.2-rc.3."
+  }
+}

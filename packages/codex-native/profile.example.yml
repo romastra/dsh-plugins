@@ -1,0 +1,6 @@
+# Example profile patch; not applied by installation. One owner of openai-codex per profile.
+- insert:
+    - id: codex-native
+      name: '@local/codex-native'
+      config:
+        stateDirectory: !!js dshHomePath('codex-native-state')

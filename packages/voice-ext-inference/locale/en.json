@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "voice-ext-inference",
+    "description": "Private Tailnet GPU dictation with a microphone picker and per-browser choice, FLAC compression, live preview, full final recording, native hold-to-talk and question ownership. Settings include GPU pool capacity, reserve and drain controls. Local Parakeet is retained disabled for explicit rollback."
+  }
+}

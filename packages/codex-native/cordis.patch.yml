@@ -1,0 +1,3 @@
+# Existing profiles own their codex-native entry and stateDirectory.
+# This bundle installs/manages its code without inserting a second route owner.
+[]

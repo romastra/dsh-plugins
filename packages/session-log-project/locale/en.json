@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session log with project",
+    "description": "Adds Session Log with Project beside Download Session Log in the session header menu. Downloads one ZIP with the normal session export and project/ containing the session’s current working directory, including hidden and ignored files. Links and special files are not followed; any omissions are listed in project-export-notes.txt. The browser selects the download destination; files are streamed without changing the project. A concurrent file change or read error fails the download. ZIP64 is used automatically for large projects. The session_log_with_project tool creates the same archive as a stored attachment. Project files may contain secrets; review before sharing."
+  }
+}

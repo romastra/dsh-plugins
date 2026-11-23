@@ -1,0 +1,52 @@
+{
+  "name": "@local/codex-native",
+  "version": "0.2.2-rc.5-catalog.1.replay.1.retry.1.ultrafast.1.compaction.1.recovery.1.cloud-default.1",
+  "engines": {
+    "dsh": "0.2.2-rc.5"
+  },
+  "private": true,
+  "type": "module",
+  "description": "Native Codex OAuth: durable replay, Speed, optional cloud compaction, quotas and resumable reset consent",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./acp": "./acp.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "acp.js",
+    "client.js",
+    "src",
+    "README.md",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "THIRD-PARTY-NOTICES.md",
+    "upstream-manifest.json",
+    "profile.example.yml"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/ultrafast.test.mjs test/capability.test.mjs test/provider.test.mjs test/reported-tier.test.mjs test/policy.test.mjs test/evidence.test.mjs test/auth.test.mjs test/credentials.test.mjs test/scope.test.mjs test/usage.test.mjs test/snapshot-cache.test.mjs test/cache-retention.test.mjs test/metadata-fetch.test.mjs test/replay-generation.test.mjs test/compaction-quota.test.mjs test/compaction-quota-ui.test.mjs test/compact-triggers.test.mjs test/cloud-hardening.test.mjs test/cloud-provider.test.mjs test/reset-hardening.test.mjs test/quota-recovery-hardening.test.mjs test/upstream-quota-forecast.test.mjs test/upstream-quota-rate-interval.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-model-selection",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

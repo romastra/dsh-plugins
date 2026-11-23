@@ -1,0 +1,21 @@
+# My personal dsh plugins index
+
+- **BTW** — Asks a side question in a read-only bubble without tool calls.
+- **Chat switcher** — Switches between chats with keyboard shortcuts and swipe gestures.
+- **Chrome AI search** — Uses Google AI Mode in a local Chrome profile for web search.
+- **Codex Native** — Connects a Codex account through OAuth and adds speed, quota and compaction controls.
+- **Codex overload recovery** — Routes known overload errors through DSH’s same-step retry policy.
+- **Composer dock reserve** — Keeps the composer stable when the context meter is hidden.
+- **Composer placeholder** — Sets custom placeholder text in the empty composer.
+- **Content origin checker** — Verifies C2PA credentials and screens images and Russian text for AI-generation signals.
+- **Draft preservation** — Preserves draft attachments and the selected agent preset when switching chats.
+- **HTTPS phone access** — Provides authenticated HTTPS access to DSH Desktop on a selected network adapter.
+- **MCP task bridge** — Runs legacy MCP Tasks as DSH background jobs.
+- **Phone access settings** — Selects the network adapter and shows the phone access QR code and certificate.
+- **Reasoning depth** — Adds a model-aware reasoning-depth control to the composer.
+- **Session log and project export** — Exports a session log and its project directory in one ZIP.
+- **Sound notifications** — Plays separate sounds for approvals, questions and task completion.
+- **SSH with Pageant** — Connects to configured SSH hosts through the Windows Pageant agent.
+- **UI zoom** — Adjusts interface scale independently in each browser.
+- **Voice dictation** — Transcribes speech through Rig ASR and supports microphone selection.
+- **Workspace colors** — Applies persistent colors to workspaces and their sessions.

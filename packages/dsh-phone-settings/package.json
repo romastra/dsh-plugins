@@ -1,0 +1,41 @@
+{
+  "name": "@local/dsh-phone-settings",
+  "version": "1.2.1",
+  "private": true,
+  "type": "module",
+  "description": "Choose any network adapter including virtual, VPN and disconnected interfaces, with verified HTTPS startup feedback, owner-only QR and public CA download.",
+  "engines": {
+    "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.png"
+  },
+  "files": [
+    "index.js",
+    "service.mjs",
+    "networks.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "icon.png"
+  ],
+  "dependencies": {
+    "qrcode": "1.5.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings-general"
+      ]
+    }
+  }
+}

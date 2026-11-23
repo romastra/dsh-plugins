@@ -1,0 +1,45 @@
+{
+  "name": "@local/ui-zoom",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-local logarithmic UI zoom with viewport-consistent native menus, submenus, hover cards and tooltips.",
+  "license": "MIT",
+  "engines": {
+    "dsh": ">=0.2.2-rc.3 <0.3.0"
+  },
+  "exports": {
+    ".": "./index-v4.js",
+    "./client": "./client-v6.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index-v4.js",
+    "client-v6.js",
+    "src",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-shortcuts",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

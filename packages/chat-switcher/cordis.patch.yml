@@ -1,0 +1,3 @@
+- insert:
+    - id: chat-switcher
+      name: "@local/chat-switcher"

@@ -1,0 +1,40 @@
+{
+  "name": "@local/mcp-task-bridge",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Run legacy MCP Tasks as owner-fenced DSH background jobs with automatic completion delivery.",
+  "license": "MIT",
+  "engines": {
+    "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "engine.js",
+    "connection.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "profile.example.yml",
+    "test"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "^4.3.6",
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}

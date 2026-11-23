@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Codex overload recovery",
+    "description": "Recognizes the known Codex server-overload error and enables native same-step request retries. Keeps your provider’s retry limits, cancellation and standard retry feedback; does not rerun tools or add prompts. Other PI_AI_ERROR failures are unchanged. Inspect the active policy with autorecovery_status. Already-closed turns and external CLI subagents are not automatically resumed."
+  }
+}

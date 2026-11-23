@@ -1,0 +1,4 @@
+- insert:
+    - id: composer-dock-reserve
+      name: '@local/composer-dock-reserve'
+      config: {}

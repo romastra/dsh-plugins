@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "会话日志和项目",
+    "description": "在会话顶部菜单的 Download Session Log 旁添加 Session Log with Project。下载一个 ZIP，包含标准会话导出及 project/ 下的当前工作目录，包括隐藏和被忽略的文件。不跟随链接或特殊文件，遗漏项目记录在 project-export-notes.txt 中。浏览器选择保存位置，项目文件不会更改。读取失败或导出时文件发生变化将使下载失败。大型项目自动使用 ZIP64。session_log_with_project 工具将同一归档保存为附件。分享前请检查项目中是否包含密钥。"
+  }
+}

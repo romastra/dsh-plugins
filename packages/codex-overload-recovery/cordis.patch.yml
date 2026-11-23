@@ -1,0 +1,4 @@
+- insert:
+    - id: local-codex-overload-recovery
+      name: '@local/codex-overload-recovery'
+      config: {}

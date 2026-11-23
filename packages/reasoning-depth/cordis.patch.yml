@@ -1,0 +1,3 @@
+- insert:
+    - id: reasoning-depth
+      name: '@local/reasoning-depth'

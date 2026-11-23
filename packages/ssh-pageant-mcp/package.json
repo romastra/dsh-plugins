@@ -1,0 +1,33 @@
+{
+  "name": "@local/ssh-pageant-mcp",
+  "version": "1.0.2",
+  "private": true,
+  "type": "module",
+  "description": "Windows Pageant integration for the pinned Python SSH MCP upstream, configured by the local owner.",
+  "license": "MIT",
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "launch.py",
+    "requirements.lock",
+    "profile.example.yml",
+    "hosts.example.toml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "dsh": "0.2.2-rc.5"
+  },
+  "os": [
+    "win32"
+  ]
+}

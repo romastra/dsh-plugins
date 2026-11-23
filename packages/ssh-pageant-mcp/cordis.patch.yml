@@ -1,0 +1,10 @@
+# Windows-only integration. It cannot contact any host until explicitly configured and enabled.
+- insert:
+    - id: ssh-pageant-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      disabled: true
+      config:
+        serverName: ssh
+        transport: stdio
+        command: python
+        args: []

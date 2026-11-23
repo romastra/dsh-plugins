@@ -1,0 +1,17 @@
+# Template only. Copy settings privately and replace placeholders before enabling.
+- id: voice-ext-inference
+  disabled: false
+  config:
+    enableLocalRollback: false
+    rig:
+      secretFile: '<absolute path to protected token file>'
+      secretFormat: raw
+      tailscalePath: '<absolute Tailscale executable path>'
+      tailscaleSha256: '<sha256 of the verified executable>'
+      ffmpegPath: '<absolute ffmpeg executable path>'
+      ffmpegSha256: '<sha256 of the verified executable>'
+      peer:
+        ip: '<verified Tailnet IPv4>'
+        port: 8081
+        peer_id: '<verified Tailscale peer ID>'
+        public_key: '<verified node public key>'

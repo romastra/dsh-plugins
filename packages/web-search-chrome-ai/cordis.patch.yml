@@ -1,0 +1,14 @@
+# Opt in to the provider and select it explicitly; no replacement of shipped presets.
+- insert:
+    - id: web-search-chrome-ai
+      name: '@local/web-search-chrome-ai'
+      disabled: true
+      config:
+        profilePath: !!js dshHomePath('chrome-ai-search-profile')
+        agentBrowserPath: agent-browser
+        engine: google
+        hl: ru
+        aiMode: true
+        headed: true
+        timeoutMs: 180000
+        cacheTtlMs: 0

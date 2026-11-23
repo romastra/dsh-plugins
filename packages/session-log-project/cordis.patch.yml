@@ -1,0 +1,5 @@
+- insert:
+    - id: local-session-log-project
+      name: '@local/session-log-project'
+      config:
+        compressionLevel: 6

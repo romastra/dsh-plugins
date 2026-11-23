@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Phone access settings",
+    "description": "Settings → Phone access lists all network adapters without a type filter, including virtual, VPN, tunnel and disconnected interfaces. The choice is persisted; HTTPS uses the selected adapter IPv4 on port 63819 with a current secret link and QR. After an interrupted request the page verifies the saved choice and active gateway instead of falsely declaring startup failed. No-IPv4 adapters remain visible and selectable. Requires @local/dsh-phone-secure. Routing and Windows Firewall can require separate permission; no automatic administrator prompts. The QR grants owner access; keep it private."
+  }
+}

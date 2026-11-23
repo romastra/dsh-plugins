@@ -1,0 +1,6 @@
+# No servers are granted access by installation. Supply an explicit per-server tool allowlist locally.
+- insert:
+    - id: local-mcp-task-bridge
+      name: '@local/mcp-task-bridge'
+      config:
+        servers: []
