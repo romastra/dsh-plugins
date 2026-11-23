@@ -1,0 +1,782 @@
+{
+  "format": 1,
+  "title": "My personal dsh plugins index",
+  "metadata": {
+    "categories": {
+      "interface": {
+        "title": {
+          "en": "Interface",
+          "ru": "Интерфейс"
+        }
+      },
+      "voice": {
+        "title": {
+          "en": "Voice input",
+          "ru": "Диктовка"
+        }
+      },
+      "models": {
+        "title": {
+          "en": "Models and agents",
+          "ru": "Модели и агенты"
+        }
+      },
+      "tools": {
+        "title": {
+          "en": "Tools and integrations",
+          "ru": "Инструменты и интеграции"
+        }
+      },
+      "remote": {
+        "title": {
+          "en": "Remote access",
+          "ru": "Удалённый доступ"
+        }
+      }
+    },
+    "labels": {
+      "own": {
+        "title": {
+          "en": "Our bundles",
+          "ru": "Собственные"
+        }
+      },
+      "upstream": {
+        "title": {
+          "en": "Upstream",
+          "ru": "От сторонних авторов"
+        }
+      },
+      "setup": {
+        "title": {
+          "en": "Setup required",
+          "ru": "Нужна настройка"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "@local/chat-switcher",
+      "title": {
+        "en": "Chat switcher",
+        "ru": "Переключение чатов"
+      },
+      "description": {
+        "en": "Current chat first, then events by priority and observed age; the last group includes pinned, working and last-hour visits. Previews fill 90% of the chat area, with a visual wordless tension indicator. Card backgrounds optionally follow assigned Workspace colors. Historical event times absent from the source cannot be reconstructed.",
+        "ru": "Текущий чат первым, затем события по приоритету и наблюдаемому времени; в последней группе — закреплённые, работающие и посещённые за 60 минут. Превью занимают 90% области чата. Натяжение визуальное, без надписей. Фон карточек при доступном источнике следует назначенному цвету Workspace. Старое историческое время уведомлений без timestamp не восстанавливается."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSI+PHJlY3QgeD0iMyIgeT0iOSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE5IiByeD0iNCIgc3Ryb2tlPSIjNDk5N2VkIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSIxMSIgeT0iMyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE5IiByeD0iNCIgZmlsbD0iIzQ5OTdlZCIvPjxwYXRoIGQ9Im0xNSAxMiAzIDMgNi02IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/chat-switcher"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.16.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/chat-switcher"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/codex-native",
+      "title": {
+        "en": "Codex Native",
+        "ru": "Codex Native"
+      },
+      "description": {
+        "en": "Native Codex OAuth route with account model discovery, per-session Standard, Fast and Ultrafast when advertised by Codex, scoped replay and bounded transient retries. Uses the existing codex-native entry; does not create a second openai-codex owner. Retry defaults: 12, backoff 2–60 seconds. Unscoped stock-adapter history is reused as visible text/tool calls only, without opaque replay or reasoning.",
+        "ru": "Маршрут Codex OAuth с каталогом моделей аккаунта, режимами Standard, Fast и Ultrafast для сессии при наличии доступа по данным Codex, изолированным replay и ограниченными повторами временных ошибок. Использует существующую запись codex-native, не создаёт второго владельца openai-codex. По умолчанию 12 повторов, задержки 2–60 секунд. История штатного адаптера переносится в запрос только как текст и вызовы инструментов, без непривязанных скрытых replay-данных."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj48cGF0aCBkPSJtMTIgMTAtNyA4IDcgOG0xMi0xNiA3IDgtNyA4IiBzdHJva2U9IiM2NDg2YWUiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJtMjAgOC00IDIwIiBzdHJva2U9IiM2NWFhODciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4K",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/codex-native"
+      },
+      "metadata": {
+        "category": "models",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.2.2-rc.5-catalog.1.replay.1.retry.1.ultrafast.1.compaction.1.recovery.1.cloud-default.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/codex-native"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/codex-overload-recovery",
+      "title": {
+        "en": "Codex overload recovery",
+        "ru": "Восстановление после перегрузки Codex"
+      },
+      "description": {
+        "en": "Recognizes the known Codex server-overload error and enables native same-step request retries. Keeps your provider’s retry limits, cancellation and standard retry feedback; does not rerun tools or add prompts. Other PI_AI_ERROR failures are unchanged. Inspect the active policy with autorecovery_status. Already-closed turns and external CLI subagents are not automatically resumed.",
+        "ru": "Распознаёт известную ошибку перегрузки серверов Codex и включает штатные повторы запроса внутри того же шага. Сохраняет лимиты провайдера, отмену и штатный индикатор повторов; не перезапускает инструменты и не добавляет сообщения. Остальные PI_AI_ERROR не изменяет. Текущая политика доступна через autorecovery_status. Уже закрытые ходы и внешние CLI-субагенты автоматически не возобновляются."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNMjUuOCAxMy4yYTkgOSAwIDEgMCAxIDcuNiIgc3Ryb2tlPSIjNjQ4NmFlIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTI2LjcgNy43djYuNWgtNi41IiBzdHJva2U9IiM2NDg2YWUiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cGF0aCBkPSJtMTMuNiAxOC4yIDMgMyA1LjgtNiIgc3Ryb2tlPSIjNjVhYTg3IiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/codex-overload-recovery"
+      },
+      "metadata": {
+        "category": "models",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/codex-overload-recovery"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/composer-dock-reserve",
+      "title": {
+        "en": "Composer status bar spacing",
+        "ru": "Резерв строки статуса",
+        "zh": "输入框状态栏占位"
+      },
+      "description": {
+        "en": "Keeps the context meter’s space when it is temporarily hidden, so the status bar does not unwrap during dictation. Does not change voice capture or recognition.",
+        "ru": "Сохраняет место процента контекста, когда индикатор временно скрыт. Строка статуса не теряет перенос при начале диктовки. Запись и распознавание не меняются.",
+        "zh": "上下文占用率临时隐藏时保留原有空间，防止听写时状态栏换行跳动。不更改录音或语音识别。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNOCA5aDIwbS0yMCAxOGgyMCIgc3Ryb2tlPSIjNEI4RUVFIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMCAxOGgxNiIgc3Ryb2tlPSIjNEI4RUVFIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWRhc2hhcnJheT0iNCA0Ii8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/composer-dock-reserve"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/composer-dock-reserve"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/composer-placeholder",
+      "title": {
+        "en": "Composer placeholder",
+        "ru": "Подсказка composer"
+      },
+      "description": {
+        "en": "Set any empty-composer placeholder in Plugins → Composer placeholder. Saved for this profile and shared by connected browsers. An empty value hides the hint. Drafts and command hints are unchanged.",
+        "ru": "Произвольный текст в пустом поле ввода: Plugins → Подсказка composer. Значение сохраняется для профиля и общее для подключённых браузеров. Пустое значение скрывает подсказку. Черновики и подсказки команд не изменяются."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij48cGF0aCBkPSJNOCAxMGgyMHYxNEgxNWwtNSA0di00SDh6IiBmaWxsPSJub25lIiBzdHJva2U9IiM2MDg5YWQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMiAxNWgxMm0tMTIgNGg4IiBzdHJva2U9IiM2MDg5YWQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+DQo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/composer-placeholder"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.1.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/composer-placeholder"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/content-origin",
+      "title": {
+        "en": "Content origin checker",
+        "ru": "Проверка происхождения контента"
+      },
+      "description": {
+        "en": "Locally verify C2PA credentials and screen images and Russian text for AI-generation signals. Not a universal detector or a SynthID decoder.",
+        "ru": "Локальная проверка подписей C2PA и признаков ИИ-генерации в изображениях и русском тексте. Не универсальный детектор и не декодер SynthID."
+      },
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAExUlEQVR4nO2dzY0UMRSEe1ZkwN0JdABI3DksN4KYAIhkAtgguMGBOxIBdAK+EwNoxI40am177G7/VL1XdYMd+sf1ud6zu5mdJkmSJEmSPOrU60Tv509/e53Liv4sP5v70/QEMh0fhuoHlelcMFQ7kIznBOGpxoXI/DGqMe6HCJLx/GmwOwFkPpb2+rELAJmPqT2+FAMg87FV6k8RADKfQyU+ZQMg87mU61cWADKfUzm+VdkHkHj1EADNfm498i8JgMy3oZSP7ktAuJwnzzp5nP0p0+PXl8nTdvG7yYlyZ3q4+5xlGFwAcDTegwMYThbjv2Vdj+QgrMuAmQTo1cwFY6lADcDoDj4YgOHEFv+jTc8ROgz3ZYAiARhMZ00GWADYTGeF4QlxwHqaHzua0vveaHqA3oOSMj0AXUuPHmAYAAwDHQiukQoA5gENxNdOvwpAGLh4d1y0On5EZgDoWUvj67ksgEANwOhlVTSQCnQAjDbdGgwUAKCa3gqGnvfbFYDrjeUOCJvprMkAtxMo9ZUAcC4B4FwCwLkEgHPBAoDYMVu8H1gAvCp2Xv4KAOcSAM5FsRW8peX3tyrHmT98mbyqOwAl28GocM2GgKFOgFGpsrx+xgII6gEOlJRaJWiklADTMSPZ04AagFqDvhiYyS4BGNHsLRufv/79USBHvAMB3QO0Xi0sG2ZejdwyM/WzreMhr3qgARihOXMWs9b8tdwC0KruL2T9BHUPUHuw58JZff08m+EQCWDlhU8LclsCpP8SAM4lAJyLugk8shR7q3lbCjdzajaAo/oitwnQah0/k+0PuAXg6KxeyJd/NAC03EadE1u6qT3/1BYy0zYwfQ9QQ3NiM6dklrNFP00CMGkhLAsCYEo/4cv9tzfz2SAYBgDidvC881nA2nQmCNz3AFsQ5LwoUsvokZNh6DeFlnTIiInxCILnX98nxHu7/55A9QANy8aPj58ndNEAgLyenokhoAEAHYKUkCEYCgDDFzjXWkFsQTC6t6FKAHTNhLuBwwGwlALhck52/usUGD37IQCwAkG4u54cCBDMhwHAop4LkmCkYABgToFQeB1IvQIMAKwQhMT51ylw/TOS+XAA7NUoCELGeW8Q5G4LT94BQGmOaupmPuK9wQHAUgpC4fkQzYcFAB2CYMR8k+8D3MxpMegBZNXhIgGOmljbrLDzeMizH+ZXx7Y2cxRIEdR8dy+E7DUxGIx8ygSoaUbOrAwVzoU6+2kToNaAPjI3GDff/Cpg70ohOIj7t0STAC1mVng1vab5TLOfqgdYC23GRiLjKXsA5AGPQNfiqgcY/WvcI7Hx9AmwNqK3GdGA+WYA6GlKHABbS1GXgJ5lIRoy3WwCtJqp0aj5pgGoYV40FvdZ+wBMewEe/zt6zT0Akz3A0f4gGjXebQkoMTk6M3+zBFguA2uFy9mN8ev4d5sA94pOzN+SewC866kkLiRebfmpBHCuJABKARtK+fgwAQQBtx75pxLgXFkAKAU4leNbdgIIAi7l+lVUAgQBh0p8Ku4BBAG2Sv3Z1QQKAkzt8WX3KkAQYGmvH1W2e708OUTU0YlYZR9AaTBGNca9+gMfpUF71ZxwTZ/4CYZ6apWy3R75CoZyqbRKkiRJUzv9A4BxMT9hyQeqAAAAAElFTkSuQmCC",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/content-origin"
+      },
+      "metadata": {
+        "category": "tools",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/content-origin"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/draft-preservation",
+      "title": {
+        "en": "Draft preservation",
+        "ru": "Сохранение черновиков",
+        "zh": "保留聊天草稿"
+      },
+      "description": {
+        "en": "Keeps the original draft attachments, including pasted images, files, their order and upload state, while switching chats. Reopening an existing blank chat keeps its selected agent mode without changing the global default. Sent and removed attachments are not restored. Works within the current page until reload or Desktop exit; this is not a backup. Compatible with DSH 0.2.2-rc.3.",
+        "ru": "При переключении чатов сохраняет исходные вложения черновика: картинки из буфера, файлы, их порядок и состояние загрузки. Возврат в существующий новый чат сохраняет выбранный режим, не меняя глобальный режим по умолчанию. Отправленные и удалённые вложения не восстанавливаются. Работает в текущем окне до перезагрузки страницы или закрытия DSH; не является резервным копированием. Совместимость: DSH 0.2.2-rc.3.",
+        "zh": "切换聊天时保留草稿中的原始附件，包括粘贴的图片、文件、顺序和上传状态。重新打开已有空白聊天时保留已选智能体模式，不更改全局默认模式。已发送或删除的附件不会恢复。附件仅在当前页面内保留，刷新页面或退出桌面应用后不保留；这不是备份。兼容 DSH 0.2.2-rc.3。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNMTAgN2gxMWw2IDZ2MTRhMiAyIDAgMCAxLTIgMkgxMGEyIDIgMCAwIDEtMi0yVjlhMiAyIDAgMCAxIDItMloiIHN0cm9rZT0iIzRiOGVkNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTIxIDd2Nmg2IiBzdHJva2U9IiM0YjhlZDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Im0xNiAyNCA2LTZhMy4yIDMuMiAwIDAgMC00LjUtNC41bC02LjIgNi4yYTQuNyA0LjcgMCAwIDAgNi42IDYuNmw2LjEtNi4xTTEzLjUgMjIuNWw1LjgtNS44IiBzdHJva2U9IiM0YjhlZDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/draft-preservation"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/draft-preservation"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/dsh-phone-secure",
+      "title": {
+        "en": "Secure phone access",
+        "ru": "Защищённый доступ с телефона"
+      },
+      "description": {
+        "en": "Adds HTTPS phone access to the existing Desktop using native DSH token/cookie verification on every route. A private Windows CA is trusted once on the phone; the server identity and QR follow any selected adapter IPv4, including virtual, VPN and tunnel interfaces. There is no physical/private-address/default-gateway filter. No nginx, WSL or separate software. Unauthorized HTTP requests receive no response within a bounded quarantine (10 total, 3 per IP, 120 seconds); excess connections close. TCP/TLS metadata remain observable. Choose an adapter in Settings → Phone access with @local/dsh-phone-settings, or use the local connection document. Secret links grant owner access. Disable the whole bundle to close the listener; the CA is not automatically removed.",
+        "ru": "HTTPS-вход к существующему Desktop: каждый маршрут проверяет штатный авторизатор DSH. Свой ЦС один раз устанавливается на телефон; сертификат сервера и QR следуют за IPv4 любого выбранного адаптера, включая виртуальные, VPN и туннели. Адаптеры не фильтруются по типу, частному диапазону или наличию шлюза. Без nginx, WSL и отдельных программ. Неавторизованные HTTP-запросы молчат в пределах карантина (10 всего, 3 на IP, 120 секунд); сверх лимита соединение закрывается. TCP/TLS остаются обнаружимыми. Выберите адаптер через Настройки → Доступ с телефона (нужен @local/dsh-phone-settings); доступен и локальный документ подключения. Секретные ссылки дают полный доступ владельца. Для закрытия входа выключите весь набор; ЦС автоматически не удаляется."
+      },
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAB0ElEQVR4nO3d0U3DMBRA0QSxmFdhB6ZgB1bxaPAVqarSJA558bv4nk9aWtc3iY2Q0mmSJEmSJEmSJEmSJOmM+dRvDaR8fP1sPV6/P+chg+1NTJS6MuFnx3JHvHnUUGuTfdVYIsN1DZYlVoSoaN2CUWLVnYm/e43rEowQqzZO9NZnujJaqmB37rhK0ARHf7Z5xFit0VrH/Px89Bm29uH/uk7s2Xr9qJ3h8rpXH4hv0+DqRRO6dlZFXDWGD0bbTL1Hv8F/UA+uVcvPItdjRLAeG5Ij77s8/hgueqxeEl9omfjluXccWAaDXQUMBmMwGIPBIHaJGZQbd4JbPMMOeP57q+d/GwwGYzAYgx3wvGb1XMPcdBzUM9IjzzAYg8EYDMZgMAaDMRiMwWAMBmMwGIPBGAzGYDAGgzEYjMFgDAZjMBiDwRgMxmAwBoMxGIzBYAwGYzAYg8EYDMZgMAaDMRiMwWAMBmMwGIPBGAzGYDAGgzEYjMFgUPfpKI33eMpyb40reYbBGAzGYDApvsqj53pTko0n3RnWctP+aAUWK90ukfC9YkOuYZmP4Jp4bF03HRknpiYcU6pdYqYJqonGsiXNIDN9j7MkSZIkSZIkSZKkqYtfAuyqIPj+wnEAAAAASUVORK5CYII=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/dsh-phone-secure"
+      },
+      "metadata": {
+        "category": "remote",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "2.2.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/dsh-phone-secure"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/dsh-phone-settings",
+      "title": {
+        "en": "Phone access settings",
+        "ru": "Доступ с телефона — настройки"
+      },
+      "description": {
+        "en": "Settings → Phone access lists all network adapters without a type filter, including virtual, VPN, tunnel and disconnected interfaces. The choice is persisted; HTTPS uses the selected adapter IPv4 on port 63819 with a current secret link and QR. After an interrupted request the page verifies the saved choice and active gateway instead of falsely declaring startup failed. No-IPv4 adapters remain visible and selectable. Requires @local/dsh-phone-secure. Routing and Windows Firewall can require separate permission; no automatic administrator prompts. The QR grants owner access; keep it private.",
+        "ru": "Настройки → Доступ с телефона: все сетевые адаптеры без фильтра типа, включая виртуальные, VPN, туннели и отключённые. Выбор сохраняется, HTTPS запускается на IPv4 выбранного адаптера и порту 63819; выдаются текущая секретная ссылка и QR. После прерванного запроса раздел заново проверяет сохранённый выбор и активный шлюз, а не объявляет запуск неудачным. Адаптер без IPv4 остаётся в списке и может быть сохранён. Нужен @local/dsh-phone-secure. Маршрутизация и Windows Firewall могут требовать отдельного разрешения; автоматического повышения прав нет. QR даёт права владельца — храните его в тайне."
+      },
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAB0ElEQVR4nO3d0U3DMBRA0QSxmFdhB6ZgB1bxaPAVqarSJA558bv4nk9aWtc3iY2Q0mmSJEmSJEmSJEmSJOmM+dRvDaR8fP1sPV6/P+chg+1NTJS6MuFnx3JHvHnUUGuTfdVYIsN1DZYlVoSoaN2CUWLVnYm/e43rEowQqzZO9NZnujJaqmB37rhK0ARHf7Z5xFit0VrH/Px89Bm29uH/uk7s2Xr9qJ3h8rpXH4hv0+DqRRO6dlZFXDWGD0bbTL1Hv8F/UA+uVcvPItdjRLAeG5Ij77s8/hgueqxeEl9omfjluXccWAaDXQUMBmMwGIPBIHaJGZQbd4JbPMMOeP57q+d/GwwGYzAYgx3wvGb1XMPcdBzUM9IjzzAYg8EYDMZgMAaDMRiMwWAMBmMwGIPBGAzGYDAGgzEYjMFgDAZjMBiDwRgMxmAwBoMxGIzBYAwGYzAYg8EYDMZgMAaDMRiMwWAMBmMwGIPBGAzGYDAGgzEYjMFgUPfpKI33eMpyb40reYbBGAzGYDApvsqj53pTko0n3RnWctP+aAUWK90ukfC9YkOuYZmP4Jp4bF03HRknpiYcU6pdYqYJqonGsiXNIDN9j7MkSZIkSZIkSZKkqYtfAuyqIPj+wnEAAAAASUVORK5CYII=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/dsh-phone-settings"
+      },
+      "metadata": {
+        "category": "remote",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.2.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/dsh-phone-settings"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/mcp-task-bridge",
+      "title": {
+        "en": "MCP task bridge",
+        "ru": "Мост MCP Tasks"
+      },
+      "description": {
+        "en": "Run allowlisted legacy MCP Tasks as DSH background jobs. Completion resumes the owning session without model polling; use mcp_task_tools, mcp_task_start and standard job controls. Includes the current SSH server. Separate connections; tracking is process-local. Uses stock job notices with an idle-owner wake fallback. Supports 2025-11-25 Tasks, not the newer extension; no interactive input or rich image delivery.",
+        "ru": "Запускает разрешённые MCP Tasks как фоновые задачи DSH и возобновляет исходную сессию по завершении — без опроса моделью. Инструменты: mcp_task_tools, mcp_task_start и штатные job_*. Настроен текущий SSH-сервер. Соединения отдельные; ожидание не переживает закрытие DSH или агента. Использует штатные уведомления и дополнительный wake-сигнал для своего idle-агента. Поддерживает Tasks версии 2025-11-25, но не новое расширение; без интерактивного ввода и передачи изображений."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNOCAyNGgyME0xMCAyNHYtNW04IDVWMTJtOCAxMnYtNSIgc3Ryb2tlPSIjNjQ4NmFlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjEwIiBjeT0iMTUiIHI9IjMiIHN0cm9rZT0iIzY0ODZhZSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIxNSIgcj0iMyIgc3Ryb2tlPSIjNjQ4NmFlIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBkPSJtMTUgMTAgMiAyIDQtNSIgc3Ryb2tlPSIjNjVhYTg3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/mcp-task-bridge"
+      },
+      "metadata": {
+        "category": "tools",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/mcp-task-bridge"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/reasoning-depth",
+      "title": {
+        "en": "Reasoning depth",
+        "ru": "Глубина рассуждений",
+        "zh": "推理深度"
+      },
+      "description": {
+        "en": "Quickly choose the current model’s reasoning depth with a blue, snapping slider below the message composer.",
+        "ru": "Голубой ползунок под полем ввода для быстрого выбора глубины рассуждений с делениями по доступным уровням текущей модели.",
+        "zh": "在消息输入框下方使用蓝色分档滑块快速选择当前模型支持的推理深度。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTciIGZpbGw9IiNlOGYyZmYiLz4KICA8cGF0aCBkPSJNMTQgMzVoMzYiIHN0cm9rZT0iIzljYzRmZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMTQgMzVoMjQiIHN0cm9rZT0iIzRiOGVlZSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIxNCIgY3k9IjM1IiByPSIyIiBmaWxsPSIjZmZmIi8+CiAgPGNpcmNsZSBjeD0iMjYiIGN5PSIzNSIgcj0iMiIgZmlsbD0iI2ZmZiIvPgogIDxjaXJjbGUgY3g9IjM4IiBjeT0iMzUiIHI9IjgiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzRiOGVlZSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIzNSIgcj0iMiIgZmlsbD0iIzRiOGVlZSIvPgogIDxwYXRoIGQ9Im0yNiAxOSA2LTYgNiA2IiBzdHJva2U9IiM0YjhlZWUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/reasoning-depth"
+      },
+      "metadata": {
+        "category": "models",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.6",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/reasoning-depth"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/session-log-project",
+      "title": {
+        "en": "Session log with project",
+        "ru": "Лог сессии с проектом",
+        "zh": "会话日志和项目"
+      },
+      "description": {
+        "en": "Adds Session Log with Project beside Download Session Log in the session header menu. Downloads one ZIP with the normal session export and project/ containing the session’s current working directory, including hidden and ignored files. Links and special files are not followed; any omissions are listed in project-export-notes.txt. The browser selects the download destination; files are streamed without changing the project. A concurrent file change or read error fails the download. ZIP64 is used automatically for large projects. The session_log_with_project tool creates the same archive as a stored attachment. Project files may contain secrets; review before sharing.",
+        "ru": "Добавляет пункт Session Log with Project рядом с Download Session Log в верхнем меню сессии. Скачивает ZIP со штатным экспортом сессии и папкой project/ с текущим рабочим каталогом сессии, включая скрытые и игнорируемые файлы. Ссылки и специальные файлы не копируются; пропуски перечисляются в project-export-notes.txt. Место сохранения выбирает браузер; проект не изменяется. Ошибка чтения или изменение файла во время экспорта прерывает загрузку. Для больших проектов автоматически используется ZIP64. Инструмент session_log_with_project создаёт такой же архив как вложение. В проекте могут быть секреты — проверьте архив перед передачей.",
+        "zh": "在会话顶部菜单的 Download Session Log 旁添加 Session Log with Project。下载一个 ZIP，包含标准会话导出及 project/ 下的当前工作目录，包括隐藏和被忽略的文件。不跟随链接或特殊文件，遗漏项目记录在 project-export-notes.txt 中。浏览器选择保存位置，项目文件不会更改。读取失败或导出时文件发生变化将使下载失败。大型项目自动使用 ZIP64。session_log_with_project 工具将同一归档保存为附件。分享前请检查项目中是否包含密钥。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNyAxMmEyIDIgMCAwIDEgMi0yaDZsMyAzaDlhMiAyIDAgMCAxIDIgMnYxMWEyIDIgMCAwIDEtMiAySDlhMiAyIDAgMCAxLTItMlYxMloiIHN0cm9rZT0iIzRiOGVkNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTIwIDdoNmwzIDN2N2gtOVY3WiIgZmlsbD0iI2RjZTlmNSIgc3Ryb2tlPSIjNGI4ZWQ0IiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0yNSA3djRoNE0yMyAxNGgzIiBzdHJva2U9IiM0YjhlZDQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMTYgMTZoM3YyaC0zem0wIDRoM3YyaC0zeiIgZmlsbD0iIzRiOGVkNCIvPgogIDxyZWN0IHg9IjE1LjciIHk9IjI0IiB3aWR0aD0iMy42IiBoZWlnaHQ9IjMiIHJ4PSIuOCIgc3Ryb2tlPSIjNGI4ZWQ0IiBzdHJva2Utd2lkdGg9IjEuNCIvPgo8L3N2Zz4K",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/session-log-project"
+      },
+      "metadata": {
+        "category": "tools",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/session-log-project"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/sound-notifications",
+      "title": {
+        "en": "Sound notifications",
+        "ru": "Звуковые оповещения",
+        "zh": "声音通知"
+      },
+      "description": {
+        "en": "Separate sounds for access, questions or attention-needed stops, and successful completion. A click or key inside a chat acknowledges its notifications. Auto Review stays silent.",
+        "ru": "Три звука: доступ, вопросы и требующие внимания остановки, успешное завершение. Клик или клавиша внутри чата снимают его оповещение. Auto Review остаётся беззвучным.",
+        "zh": "分别设置审批、提问或需关注停止、成功完成的声音。聊天内点击或按键可确认当前通知。自动审核保持静音。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNiIgZmlsbD0iIzMzN2M5ZCIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZjNkMCIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwIDQzaDI0Yy00LTUtNC05LTQtMTVhOCA4IDAgMCAwLTE2IDBjMCA2IDAgMTAtNCAxNVoiLz48cGF0aCBkPSJNMjggNDhhNC40IDQuNCAwIDAgMCA4IDBNMzIgMTZ2M00xNiAyM2wtMy0zbTM1IDMgMy0zIi8+PC9nPjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/sound-notifications"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.7.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/sound-notifications"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/ssh-pageant-mcp",
+      "title": {
+        "en": "SSH with Pageant",
+        "ru": "SSH через Pageant"
+      },
+      "description": {
+        "en": "Discover authorized SSH hosts through the Windows Pageant agent. Install disabled; setup and your own private host definitions are required.",
+        "ru": "Доступ к вашим SSH-хостам через уже запущенный Pageant в Windows. По умолчанию выключен; нужен приватный список хостов и выбранный отпечаток ключа."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj48cGF0aCBkPSJNNi41IDguNWgyM3YxNmgtMjN6IiBzdHJva2U9IiM0Mzg0YjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Im0xMC41IDEzIDMuNSAzLTMuNSAzbTYgMGg0IiBzdHJva2U9IiM0Mzg0YjciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGNpcmNsZSBjeD0iMjIuNSIgY3k9IjI1LjUiIHI9IjMiIHN0cm9rZT0iIzQ0OGE3OCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0ibTIwLjIgMjcuNC00IDMuMW0xLjQtMS4xIDEuMSAxLjEiIHN0cm9rZT0iIzQ0OGE3OCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4K",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/ssh-pageant-mcp"
+      },
+      "metadata": {
+        "category": "remote",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.2",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/ssh-pageant-mcp"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/ui-zoom",
+      "title": {
+        "en": "Interface zoom",
+        "ru": "Масштаб интерфейса",
+        "zh": "界面缩放"
+      },
+      "description": {
+        "en": "One magnifier on the right of the chat toolbar opens a vertical slider: track 30% of window height, an opaque circular thumb with grip detail (7% of track length, minimum 24px) and a minimum 48px touch target. Fixed 50%, 100% and 300% labels sit beside—not across—the draggable strip. Local inverse zoom keeps its size unchanged at every UI zoom. Native DSH 0.2.2-rc.3 menus, submenus, hover cards and tooltips use normalized viewport positioning while their visible content stays zoomed. Steps use ln(zoom) = 0.1; the separate 100% scale label has an extra sticky step on each side during dragging only. Ctrl/Cmd + Shift + plus/minus uses the log steps with no dead presses at 100%; Ctrl/Cmd + Shift + 0 resets. The 50–300% preference is saved only in this browser’s localStorage, with full precision; dragging saves on release. Desktop and phone are independent. Same-origin tabs in one browser share the value. New browser storage starts at 100%, not the old profile value. If storage is blocked, zoom works in tab memory with an unsaved-value warning. Escape or an outside click closes the panel. Also available in Settings → General → Interface zoom. Uses CSS document zoom, not native Electron page zoom; embedded native surfaces are not controlled.",
+        "ru": "Одна лупа справа в верхней панели чата открывает вертикальный слайдер: дорожка 30% высоты окна, контрастный круглый рычажок с рельефом (7% длины, минимум 24px) и областью захвата не менее 48px. Неподвижные подписи 50%, 100% и 300% находятся сбоку, а не поперёк дорожки. Локальный антизум сохраняет их размер при любом масштабе UI. Штатные меню, подменю, hover-карточки и подсказки DSH 0.2.2-rc.3 используют нормализованный слой экранных координат, сохраняя увеличенный размер содержимого. Шаг ln(zoom) = 0.1; отдельная подпись 100% и дополнительная зона прилипания на один шаг с каждой стороны действуют при перетаскивании. Ctrl/Cmd + Shift + плюс/минус меняют логарифмический шаг без пустых нажатий на 100%; Ctrl/Cmd + Shift + 0 сбрасывает масштаб. Диапазон 50–300%, значение с полной точностью сохраняется только в localStorage этого браузера; при перетаскивании — при отпускании. Десктоп и телефон независимы, вкладки одного браузера на одном origin делят значение. Новое хранилище начинает со 100%, старое значение профиля не импортируется. При запрете хранения масштаб действует в памяти вкладки с предупреждением. Escape или щелчок снаружи закрывает панель. Также доступно Настройки → Общие → Масштаб интерфейса. Используется CSS-зум документа, не нативный зум Electron; встроенные нативные поверхности не управляются.",
+        "zh": "聊天顶部工具栏右侧的单个放大镜打开垂直滑块：轨道长为窗口高度的 30%，带抓握细节的实心圆形滑块直径为轨道长的 7%（至少 24px），触摸区域至少 48px。固定的 50%、100%、300% 刻度放在轨道侧边而非轨道上。局部反向缩放保持其尺寸不随界面缩放改变。DSH 0.2.2-rc.3 原生菜单、子菜单、悬停卡片和提示采用统一的视口定位单位，内容仍保留选定缩放。ln(zoom) 步长为 0.1；拖动时，独立的 100% 刻度两侧各增加一个步长的吸附区。Ctrl/Cmd + Shift + 加号/减号按对数步长调整，在 100% 不会空按；Ctrl/Cmd + Shift + 0 重置。50–300% 的偏好以完整精度仅保存在当前浏览器的 localStorage 中，拖动在释放时保存。桌面端和手机互不影响，同一浏览器的同源标签页共享数值。新的浏览器存储从 100% 开始，不导入旧配置值；存储被禁止时仍在标签页内存中生效并提示未保存。Escape 或点击外部关闭。也可前往设置 → 常规 → 界面缩放。使用文档 CSS 缩放而非 Electron 原生页面缩放，不控制内嵌原生界面。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cmVjdCB4PSI2LjUiIHk9IjcuNSIgd2lkdGg9IjIzIiBoZWlnaHQ9IjIxIiByeD0iNCIgc3Ryb2tlPSIjNGI4ZWVlIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBkPSJNNy41IDEzaDIxIiBzdHJva2U9IiM0YjhlZWUiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik0xNy41IDE3djhtLTQtNGg4IiBzdHJva2U9IiM0YjhlZWUiIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/ui-zoom"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.5.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/ui-zoom"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.3 <0.3.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "voice-ext-inference",
+      "title": {
+        "en": "voice-ext-inference",
+        "ru": "voice-ext-inference",
+        "zh": "voice-ext-inference"
+      },
+      "description": {
+        "en": "Private Tailnet GPU dictation with a microphone picker and per-browser choice, FLAC compression, live preview, full final recording, native hold-to-talk and question ownership. Settings include GPU pool capacity, reserve and drain controls. Local Parakeet is retained disabled for explicit rollback.",
+        "ru": "GPU-диктовка по приватному Tailnet с выбором микрофона рядом с кнопкой записи, сжатием FLAC, предпросмотром, полным финальным распознаванием, удержанием кнопки и защитой полей вопросов. Настройки GPU-пула, резерва и дренирования. Локальный Parakeet сохранён выключенным для явного отката.",
+        "zh": "通过私有 Tailnet 的 GPU 听写：支持选择并记住麦克风、FLAC 压缩、实时预览、完整最终识别、按住录音和问题字段保护。提供 GPU 池容量、交互保留与排空设置。本地 Parakeet 保留但默认禁用，仅用于显式回滚。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkxvY2FsIG11bHRpbGluZ3VhbCBOVklESUEgUEFSQUtFRVQgZGljdGF0aW9uIChDUFUpIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibHAtYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjU2M0VCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iIzBFOTQ4OCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3QzNBRUQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxwLW1pYyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNGRkZGRkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjREJFQUZFIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHJ4PSIxNyIgZmlsbD0idXJsKCNscC1iZykiLz4KICA8cmVjdCB4PSIxMiIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMCIgcng9IjQiIGZpbGw9IiMwRjE3MkEiIG9wYWNpdHk9IjAuMzUiLz4KICA8cmVjdCB4PSIxNyIgeT0iNDUiIHdpZHRoPSI2IiBoZWlnaHQ9IjQiIHJ4PSIxLjUiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9IjI2IiB5PSI0NSIgd2lkdGg9IjYiIGhlaWdodD0iNCIgcng9IjEuNSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC41NSIvPgogIDxyZWN0IHg9IjM1IiB5PSI0NSIgd2lkdGg9IjYiIGhlaWdodD0iNCIgcng9IjEuNSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC4zNSIvPgogIDxyZWN0IHg9IjI1IiB5PSIxMiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0idXJsKCNscC1taWMpIi8+CiAgPHBhdGggZD0iTTE4IDMxdjEuOGMwIDcuNyA2LjMgMTQgMTQgMTRzMTQtNi4zIDE0LTE0VjMxIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMy4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuOTUiLz4KICA8cGF0aCBkPSJNMzIgNDYuOHY0LjIiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45NSIvPgogIDxwYXRoIGQ9Ik0xNSAyNGMtMS41IDIuMS0yLjMgNC42LTIuMyA3LjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC41NSIvPgogIDxwYXRoIGQ9Ik00OSAyNGMxLjUgMi4xIDIuMyA0LjYgMi4zIDcuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjU1Ii8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/voice-ext-inference"
+      },
+      "metadata": {
+        "category": "voice",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.2.8",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/voice-ext-inference"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/web-search-chrome-ai",
+      "title": {
+        "en": "Chrome AI Mode search",
+        "ru": "Поиск в Chrome AI"
+      },
+      "description": {
+        "en": "Google AI Mode (udm=50) through your local Chrome: one AI-generated answer plus its cited sources, via the agent-browser CLI. No paid search API.",
+        "ru": "Режим ИИ Google (udm=50) через ваш локальный Chrome: готовый ИИ-ответ и источники, которые он цитирует, без платных API."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkNocm9tZSB3ZWIgc2VhcmNoIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGVucyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0Mjg1ZjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU1IiBzdG9wLWNvbG9yPSIjMzRhODUzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZiYmMwNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMTQiIGZpbGw9IiMwZjE3MmEiLz4KICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjI4IiByPSIxMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2xlbnMpIiBzdHJva2Utd2lkdGg9IjYiLz4KICA8bGluZSB4MT0iMzgiIHkxPSIzOCIgeDI9IjUwIiB5Mj0iNTAiIHN0cm9rZT0idXJsKCNsZW5zKSIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/web-search-chrome-ai"
+      },
+      "metadata": {
+        "category": "tools",
+        "labels": [
+          "own",
+          "setup"
+        ]
+      },
+      "versions": [
+        {
+          "version": "2.2.1",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/web-search-chrome-ai"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@local/workspace-colors",
+      "title": {
+        "en": "MSX workspace colors",
+        "ru": "Цвета Workspace · MSX"
+      },
+      "description": {
+        "en": "Right-click a Workspace (or use its … menu) → Workspace color · MSX. Choose from 15 MSX colors or No color. The header and its indented Session rows share subtle accents; Chat Switcher preview cards use the same Workspace tint. Native text, status and selection remain readable. Colors are saved in the DSH profile and shared across connected devices; session data and folders are unchanged. Requires DSH 0.2.2-rc.3.",
+        "ru": "Нажмите правой кнопкой на Workspace (или откройте меню …) → Цвет Workspace · MSX. Доступны 15 цветов MSX и «Без цвета». Заголовок и вложенные строки сессий получают мягкую подсветку с учётом отступов; карточки превью Chat Switcher — тот же цвет Workspace. Текст, статусы и выделение сохраняются. Выбор сохраняется в профиле DSH и общий для подключённых устройств; данные сессий и каталоги не изменяются. Для DSH 0.2.2-rc.3."
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj4KICA8cGF0aCBkPSJNNyAxMmEyIDIgMCAwIDEgMi0yaDZsMyAzaDlhMiAyIDAgMCAxIDIgMnYxMGEyIDIgMCAwIDEtMiAySDlhMiAyIDAgMCAxLTItMlYxMloiIHN0cm9rZT0iIzgwNzZmMSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjE3IiB3aWR0aD0iNSIgaGVpZ2h0PSI2IiByeD0iMSIgZmlsbD0iIzNlYjg0OSIvPgogIDxyZWN0IHg9IjE2IiB5PSIxNyIgd2lkdGg9IjUiIGhlaWdodD0iNiIgcng9IjEiIGZpbGw9IiM2NWRiZWYiLz4KICA8cmVjdCB4PSIyMiIgeT0iMTciIHdpZHRoPSI0IiBoZWlnaHQ9IjYiIHJ4PSIxIiBmaWxsPSIjZGI2NTU5Ii8+Cjwvc3ZnPgo=",
+      "repository": {
+        "url": "https://github.com/romastra/dsh-plugins",
+        "directory": "packages/workspace-colors"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "own"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishTimestamp": 1795430115,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/romastra/dsh-plugins",
+            "commit": "3d274d9b661007749cd8e5746e25407ae9cbbdfb",
+            "path": "packages/workspace-colors"
+          },
+          "engines": {
+            "dsh": "0.2.2-rc.3 || 0.2.2-rc.5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@michengai/dsh-btw",
+      "title": {
+        "en": "BTW",
+        "ru": "BTW — вопрос в сторону"
+      },
+      "description": {
+        "en": "Ask a one-off question from the current context in a read-only bubble without tool calls.",
+        "ru": "Отдельный ответ на вопрос по текущему контексту без вызова инструментов."
+      },
+      "author": "MichengAI",
+      "repository": {
+        "url": "https://github.com/MichengAI/dsh-btw"
+      },
+      "metadata": {
+        "category": "interface",
+        "labels": [
+          "upstream"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.3.12",
+          "publishTimestamp": 1794972204,
+          "source": {
+            "type": "npm",
+            "registry": "https://registry.npmjs.org/"
+          },
+          "engines": {
+            "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+          }
+        }
+      ]
+    }
+  ]
+}
